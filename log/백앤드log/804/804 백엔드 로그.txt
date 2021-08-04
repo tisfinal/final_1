@@ -1,0 +1,40 @@
+
+*백엔드 진행상황*
+
+
+1. 파이널 프로젝트 oracle 계정 생성
+
+id : tisfinal
+pwd : tiger
+
+=====계정 생성 문장======
+create user tisfinal
+identified by tiger;
+=====================
+
+
+
+2. tisfinal 계정에 권한 부여
+
+========권한 부여 문장========
+grant connect, resource,dba to tisfinal;
+==========================
+
+*여기까지 진행하시고 oracle developer 접속하셔서 계정 추가 해주셔야 합니다.
+
+
+
+3. 테이블 생성 및 제약조건 부여
+(pk,fk 제외하고 컬럼명,데이터타입,not null 제약조건만 걸고 생성함)
+문장 작성 ㅇㅇㅇ카톡에 있음
+
+* 'tisfinal.sql' 파일 참조해서 테이블 생성 및 제약조건 부여 해주세요.
+
+* star, total_point 테이블은 제약조건 아직 부여하지 않음
+
+
+
+
+
+
+
