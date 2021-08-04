@@ -25,11 +25,8 @@ grant connect, resource,dba to tisfinal;
 
 
 3. 테이블 생성 및 제약조건 부여
-(pk,fk 제외하고 컬럼명,데이터타입,not null 제약조건만 걸고 생성함)
-문장 작성 ㅇㅇㅇ카톡에 있음
 
 * 'tisfinal.sql' 파일 참조해서 테이블 생성 및 제약조건 부여 해주세요.
-
 * star, total_point 테이블은 제약조건 아직 부여하지 않음
 
 
