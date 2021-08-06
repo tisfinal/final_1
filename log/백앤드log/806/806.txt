@@ -1,0 +1,102 @@
+
+
+////////////////백앤드/////////////////
+
+date 포맷 설정하기 
+
+
+
+INSERT INTO "TISFINAL"."SERVICE" (MEMBER_ID, ROOM_ID, START_DATE, END_DATE) 
+VALUES ('test', '3', TO_DATE('08-02', 'MM-DD'), TO_DATE('08-07', 'MM-DD'));
+
+
+table insert 순서 
+
+member=>business=>hotel=>room=>service
+
+
+방들을 다 가져와  => room
+그 방들의 예약 데이터(오늘날짜기준으로 END_DATE 보다 같거나 높은애들 즉 이미 날짜 지난 예약데이터는 안가져옴 )
+를 다 가져와 
+=>
+
+
+
+        in   out 
+1번방   1     15             x
+1번방   16    28            x
+2번방   4      6             
+2번방   8      12           x
+2번방   15      18          x
+3번방   2      5              
+3번방   8     15             x
+3번방   19     23            x
+4번방   2      6          
+5번방   5      12          x 
+5번방   13      18          x 
+6번방   17     19           x 
+6번방   20      25           x 
+7번방        9월          
+7번방    4      8          
+
+
+date의 연산이기때문에  
+
+
+SELECT room_id FROM service WHERE start_date <> to_date(${체크인날짜},'mm-dd')
+AND start_date <= to_date(${체크아웃날짜},'mm-dd') AND end_date >= to_date(${체크인날짜},'mm-dd')
+
+group by room_id
+order by 1
+;
+
+나온 컬럼값들이 ( room_id 만 나온다. ) 
+사용자가 예약하려는 날 예약이 불가능한 room_id 이다.
+    
+    
+그래서  나온 room_id 들의 가격을 예약마감으로 보이게 한다 .
+
+price 가 예약 마감이면 클릭못하게 막아둬~  ? 
+아니면 뭐 어쨋든 처리하면된다  
+
+다만 지금 위에쓴 커리문은  어느 방인지에 대한 where 문이 작성되지 않았따. 
+
+
+
+start_date => check_in
+end_date => check_out 
+으로 컬럼명 변경. 
+
+
+
+
+
+
+
+SELECT room_id FROM service WHERE start_date <> to_date(${체크인날짜},'mm-dd')
+AND start_date <= to_date(${체크아웃날짜},'mm-dd') AND end_date >= to_date(${체크인날짜},'mm-dd')
+
+group by room_id
+order by 1
+;
+
+
+사용자가 입력한 값은
+ check_in , check_out , hotel_id
+
+
+SELECT room_id from room where hotel_id = hotel_id
+
+=> 내가 클릭한 신라호텔의 방들을 먼저가져오는건데  
+이렇게해야 어떤 호텔의 방들의 예약테이블을 본건지 입력할수있음 .
+
+
+일요일 회의까지 생각해야함
+
+어쨋든 사용자가 입력한 값은 
+
+ c in, c out , hotel_id 
+ 그 호텔의 방들을 가져오는데 그냥 가져오는게아니라 예약테이블과 조인해서
+ 가져와야한다. 
+
+ 주말에 더비싼거 숙소비 < 이건 다음주까지 생각하기 자료 찾아보고 
