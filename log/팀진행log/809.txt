@@ -1,0 +1,56 @@
+
+readMe.txt
+
+
+index.html
+index.jsp를 기본경로로 설정하는 페이지
+따로 수정할 사항 없음
+
+
+setting.jsp
+taglib, c:set으로 절대경로를 변수로 세팅한 페이지
+수정할 시 꼭 말씀해주세요
+사용할 때는 1. include  2. ${image} 형식으로 사용
+
+
+디렉토리 설명
+<webapp>
+buisiness => 예약관련 jsp
+hotel => 호텔관련 jsp
+member => 회원과 관련된 jsp
+resource -=> 이미지파일, 동영상 파일 등
+search => 검색과 관련된 jsp
+
+
+${path} 설명 => /nado/
+ex )  ${path}member/join.nd 
+공통적으로 사용하는 경로들을 저장함 
+
+
+링크 이동할 때는 항상 OOOAction을 거쳐서 이동한다.
+
+
+service.moderl 에는
+MyBatis파일과 VO파일 등을 넣을 예정
+
+
+무튼..
+그래서 오늘은
+회원가입 기능 하셔도 좋고 로그인 기능 하셔도 좋습니다
+일단 개인별로 각자 해보기
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
