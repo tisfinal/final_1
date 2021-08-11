@@ -1,0 +1,31 @@
+hashtag : 정렬 
+i. 지역을 검색하던 해쉬태그로 검색하던
+  판매량순으로 (검색은 나중에 구현)
+ii. 검색 시퀀스 작성
+iii. room sequence
+iv. review query
+	예약한 사람만 리뷰??
+	[service  vs  search]
+    리뷰쓰기버튼클릭했을때 
+	hotel_id, member_id
+	=> 예약을 먼저 확인
+	=> n==1 =>if문 
+	review 테이블에 hotel_id or member_id
+	
+   (2차)예약하기버튼을 눌렀을때 예약마감이 아닌것이므로
+	=> 카드 테이블 
+	=> 호텔 등록하기
+	=> admin 계정을 만들어서 처리
+	=> 호텔등록에 수락을 하는 방향으로
+
+v. 강원도 강원 강 => 엔터를 눌렀을때 insert!
+	
+
+search 저장이 되었음 
+	=> 다시 검색창 밑에 보이게 하기위해 (연관검색어)
+	=> select count(*) from search;
+
+
+-- 연관검색어 서브쿼리문
+select * from (select count(*), finding from search group by finding order by 1 desc) where rownum<6
+; 
