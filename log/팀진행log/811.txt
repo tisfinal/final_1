@@ -1,0 +1,34 @@
+21-08-11
+
+로그인 (서비스)를 구현한다.
+
+front(view)요청하는 페이지 제작 => backend : 요청한걸 받고 db와 연결해서 가공후
+					다시 프론트로 보냄
+
+=> 프론트에서는 다시 받은 자료를 가지고 처리를 한다.
+common 엔 셋팅하는 파일이며 파일 추가를 하지 않을것
+mapper에는 sql문 작성하는 곳
+msg.jsp는 메세지 및 location위치를 보여지게 만들어 놓은 class
+
+1) form에 action을 지정해서 join.nd를 입력  => 백엔드 어디로 보낼지??
+2) Command.properties에 joinEnd.nd를 작성
+/member/joinEnd.nd=user.action.JoinEndAction
+3) JoinEndAction클래스 작성
+   1. req =요청값 getparameter로 지정함
+   2. UserVO 생성(값을 담아줄 바구니 생성)
+   3. UserDAOMyBatis 에 joinUser메소드 작성
+	ses에 던져줄 값을 반환한다
+   4. UserMapper.xml에 sql문을 작성한다
+   
+※ mybatis-config.xml에 정보(변수)들이 담아져 있는 클래스가 지정되어 있지
+않으면 typeAlias와 mapper에 작성을 해서 추가 해야한다.
+
+1. 남의코드 작성된거 수정하지 않아야 한다.
+2. jsp파일 삭제 수정 입력 => 작성자와 협의.
+3. xml은 되도록 수정하지 않고 백엔드 작업자에게 말하기~
+4. 그리고 기능구현 => 이야기를 안해 => a,b 코드작성 a,b b=>a[x]
+
+5. 금요일 회의시간은 2시 아니면 4시인데 공지할것임.
+
+
+
