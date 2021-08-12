@@ -1,0 +1,74 @@
+[Todo]
+- 테이블 변경 : hotel_point테이블에 count컬럼 추가
+- sql문 (view 생성, select문)
+- VO 생성
+- uml (user case diagram)
+- 요구사항분석 명세서 작성
+
+
+
+<sql문>
+(select문)
+호텔 목록 볼 때 
+hotel img, title, 평점, 후기갯수, 가격 5개가 보이도록
+
+(view 생성)
+room - service 연결된 view 
+   * reft outer join : 일치하지 않으면 null값이 들어감 => 예약 가능하다는 얘기
+-> 다음주에 진행하기
+
+
+<VO생성>
+ServiceVO
+RoomVO
+HotelVO
+AddHotelVO (HotelVO, ArrayList<RoomVO>, User) => user는 getsession 으로 가져와서 해당 유저 넣어줌 -> 일단 보류 -> 생성하지 않기로 함
+=> service.model 에 생성함
+
+
+<uml (Use Case Diagram)>
+okokokokokokok
+
+
+<요구사항분석 명세서 작성>
+오늘 1차 작성
+내일 마무리 해서 제출할 예정
+
+
+
+-------------------------------------- sql문 ----------------------------------------
+
+
+===============호텔목록 보여주는 sql문==================
+
+(1차 작성)
+--뷰 생성1 (호텔 방의 최저가 1개만 뽑아오는 view)
+create view hprice_view 
+as (select hotel_id ,min(room_price) min_price from room group by hotel_id);
+
+--뷰 생성2
+create view test_view 
+as (select h.hotel_id, h.thumb_img, h.htitle, t.total_star, t.count 
+from hotel h join total_point t 
+on h.hotel_id = t.hotel_id);
+
+--뷰1,2 join
+select t.hotel_id, t.thumb_img, t.htitle, t.total_star, t.count, h.min_price
+from test_view t
+join hprice_view h
+on t.hotel_id = h.hotel_id;
+
+===> 수정 ===>
+=> hotel 테이블에 min_price(최저가) 컬럼을 추가
+
+(2차 작성)
+select h.hotel_id, h.thumb_img, h.htitle, h.min_price, t.total_star, t.count 
+from hotel h join total_point t 
+on h.hotel_id = t.hotel_id;
+
+
+=================================================
+
+
+
+
