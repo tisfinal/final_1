@@ -1,0 +1,10 @@
+-로그인 / 로그아웃/ 회원가입
+
+-Mypage 로그인 안하면 안들어가짐 
+-마이페이지 눌렀을 때 =>로그인이 안되면 로그인페이지로 강제이동 
+-filterClass 생성
+
+-serch/serchInfo/hotelDetail/roomDetail
+-view작성
+
+-hotelVO / roomVO 작성 
